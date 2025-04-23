@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Selection | Bergman Fund Selection</title>
+    <meta name="description" content="Choose the perfect investment funds for your Bergman portfolio. Compare and select from our curated list of top-performing mutual funds and ETFs.">
+    <link rel="canonical" href="https://bczabcd.com/select" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">Bergman</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Bergman Subscriptions</a>
+                    <a href="ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="select.html" class="text-blue-600">Select</a>
+                    <a href="inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select id="language-selector" class="border rounded p-1">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="es">Español</option>
+                    </select>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-2 mt-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Bergman Subscriptions</a>
+                    <a href="ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="select.html" class="text-blue-600">Select</a>
+                    <a href="inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-2">
+        <nav class="text-sm">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="index.html" class="text-blue-600 hover:text-blue-800">Home</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-500">Select</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8">Fund Selection</h1>
+
+        <!-- Fund Categories -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Investment Categories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Equity Funds -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Equity Funds</h3>
+                        <p class="text-gray-600 mb-4">Growth-oriented funds investing in stocks across market caps.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Large Cap Funds
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Mid Cap Funds
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Small Cap Funds
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 view-funds-btn" data-category="Equity">View Funds</button>
+                    </div>
+                </div>
+
+                <!-- Debt Funds -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Debt Funds</h3>
+                        <p class="text-gray-600 mb-4">Income-generating funds investing in fixed-income securities.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Government Bonds
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Corporate Bonds
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Liquid Funds
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 view-funds-btn" data-category="Debt">View Funds</button>
+                    </div>
+                </div>
+
+                <!-- Hybrid Funds -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Hybrid Funds</h3>
+                        <p class="text-gray-600 mb-4">Balanced funds combining equity and debt investments.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Balanced Funds
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Dynamic Asset Allocation
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Multi-Asset Funds
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 view-funds-btn" data-category="Hybrid">View Funds</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fund Comparison -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Fund Comparison</h2>
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fund Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">1Y Returns</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">3Y Returns</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Risk Level</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Growth Fund A</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Equity</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-green-600">15.2%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-green-600">12.8%</td>
+                                <td class="px-6 py-4 whitespace-nowrap">High</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Income Fund B</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Debt</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-green-600">8.5%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-green-600">7.2%</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Low</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Balanced Fund C</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Hybrid</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-green-600">10.8%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-green-600">9.5%</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Moderate</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Bergman</h3>
+                    <p>Your trusted partner in financial planning and wealth creation.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about-us.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="team.html" class="hover:text-blue-400">Team</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="finology-subscriptions.html" class="hover:text-blue-400">Bergman Subscriptions</a></li>
+                        <li><a href="recipe.html" class="hover:text-blue-400">Recipe</a></li>
+                        <li><a href="quest.html" class="hover:text-blue-400">Quest</a></li>
+                        <li><a href="ticker.html" class="hover:text-blue-400">Ticker</a></li>
+                        <li><a href="select.html" class="hover:text-blue-400">Select</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Top Calculators</h3>
+                    <ul class="space-y-2">
+                        <li><a href="calculators/lumpsum.html" class="hover:text-blue-400">Lumpsum Calculator</a></li>
+                        <li><a href="calculators/sip.html" class="hover:text-blue-400">SIP Calculator</a></li>
+                        <li><a href="calculators/step-up.html" class="hover:text-blue-400">Step-up Calculator</a></li>
+                        <li><a href="calculators/dcf.html" class="hover:text-blue-400">DCF Calculator</a></li>
+                        <li><a href="calculators/goal-planning-sip.html" class="hover:text-blue-400">Goal Planning - SIP Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <div class="text-center">
+                    <p class="mt-2">渝ICP备2024032264号</p>
+                    <p>Contact Us: ytsgabcde087@2925.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Language selector
+        document.getElementById('language-selector').addEventListener('change', function(e) {
+            const language = e.target.value;
+            // Implement language switching logic here
+        });
+
+        // View Funds buttons functionality
+        document.querySelectorAll('.view-funds-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                // Here you would typically make an API call to get funds for the selected category
+                // For now, we'll show a modal with a message
+                showFundsModal(category);
+            });
+        });
+
+        // Fund comparison table functionality
+        document.querySelectorAll('.compare-fund-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const fundName = this.getAttribute('data-fund');
+                // Here you would typically add the fund to a comparison list
+                // For now, we'll show a confirmation message
+                showComparisonModal(fundName);
+            });
+        });
+
+        function showFundsModal(category) {
+            // Create modal HTML
+            const modalHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold">${category} Funds</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-gray-600">Loading funds for ${category} category...</p>
+                            <p class="text-sm text-gray-500">This is a placeholder. In a real implementation, this would show actual fund data from an API.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to document
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            // Add close functionality
+            const modal = document.querySelector('.fixed.inset-0');
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.addEventListener('click', () => {
+                modal.remove();
+            });
+
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+
+        function showComparisonModal(fundName) {
+            // Create modal HTML
+            const modalHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold">Add to Comparison</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-4">
+                            <p class="text-gray-600">${fundName} has been added to your comparison list.</p>
+                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+                                View Comparison
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to document
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            // Add close functionality
+            const modal = document.querySelector('.fixed.inset-0');
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.addEventListener('click', () => {
+                modal.remove();
+            });
+
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

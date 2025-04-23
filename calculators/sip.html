@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP Calculator | Bergman</title>
+    <meta name="description" content="Calculate the future value of your Systematic Investment Plan (SIP) with our free SIP Calculator. Plan your investments and see how they grow over time.">
+    <link rel="canonical" href="https://bczabcd.com/calculators/sip" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-blue-600">Bergman</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="../finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Bergman Subscriptions</a>
+                    <a href="../ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="../recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="../quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="../select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="../inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select id="language-selector" class="border rounded p-1">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="es">Español</option>
+                    </select>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-2 mt-4">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="../finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Bergman Subscriptions</a>
+                    <a href="../ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="../recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="../quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="../select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="../inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-2">
+        <nav class="text-sm">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-800">Home</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <a href="../finology-subscriptions.html" class="text-blue-600 hover:text-blue-800">Financial Calculators</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-500">SIP Calculator</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-2">SIP Calculator</h1>
+        <p class="text-gray-600 mb-8">Calculate the future value of your Systematic Investment Plan (SIP) with compound interest.</p>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Calculator Form -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Investment Details</h2>
+                <form id="sip-form" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Monthly Investment ($)</label>
+                        <input type="number" id="monthly-investment" class="w-full p-2 border rounded" required min="100" value="1000">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Expected Return (%)</label>
+                        <input type="number" id="expected-return" class="w-full p-2 border rounded" required min="1" max="30" value="12">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Time Period (Years)</label>
+                        <input type="number" id="time-period" class="w-full p-2 border rounded" required min="1" max="40" value="10">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Annual Increase in SIP (%)</label>
+                        <input type="number" id="annual-increase" class="w-full p-2 border rounded" required min="0" max="50" value="10">
+                    </div>
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 w-full">Calculate</button>
+                </form>
+            </div>
+            
+            <!-- Results -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Results</h2>
+                <div id="results" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Total Investment</p>
+                            <p id="result-investment" class="text-xl font-bold">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Total Returns</p>
+                            <p id="result-returns" class="text-xl font-bold text-green-600">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Final Amount</p>
+                            <p id="result-final" class="text-xl font-bold text-blue-600">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Annual Growth</p>
+                            <p id="result-growth" class="text-xl font-bold">0%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="font-medium mb-2">Growth Chart</h3>
+                        <canvas id="growth-chart" height="200"></canvas>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="font-medium mb-2">Year-wise Breakdown</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="py-2 px-4 text-left">Year</th>
+                                        <th class="py-2 px-4 text-right">Investment</th>
+                                        <th class="py-2 px-4 text-right">Returns</th>
+                                        <th class="py-2 px-4 text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="yearly-breakdown">
+                                    <!-- Yearly breakdown will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- How It Works -->
+        <div class="mt-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">How SIP Investment Works</h2>
+            <div class="prose max-w-none">
+                <p>A Systematic Investment Plan (SIP) is an investment strategy where you invest a fixed amount regularly (usually monthly) in a mutual fund or other investment vehicle. The future value of a SIP investment can be calculated using the following formula:</p>
+                <div class="bg-gray-100 p-4 rounded my-4 text-center">
+                    <p class="font-mono">FV = P × [((1 + r)<sup>n</sup> - 1) / r] × (1 + r)</p>
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>FV = Future Value</li>
+                    <li>P = Periodic Investment Amount</li>
+                    <li>r = Rate of Return per period (as a decimal)</li>
+                    <li>n = Number of periods</li>
+                </ul>
+                <p>For a step-up SIP where the investment amount increases annually, the calculation becomes more complex as each year's investment grows at a different rate.</p>
+                <p>The power of SIP lies in its ability to average out market volatility through regular investments, a strategy known as rupee cost averaging.</p>
+            </div>
+        </div>
+        
+        <!-- Benefits of SIP -->
+        <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Benefits of SIP Investment</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium mb-2">Rupee Cost Averaging</h3>
+                    <p class="text-gray-600">By investing a fixed amount regularly, you buy more units when prices are low and fewer when prices are high, averaging out the cost over time.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Disciplined Investing</h3>
+                    <p class="text-gray-600">SIP helps you develop a habit of regular investing, which is crucial for long-term wealth creation.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Power of Compounding</h3>
+                    <p class="text-gray-600">The earlier you start, the more time your money has to grow through the power of compound interest.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Flexibility</h3>
+                    <p class="text-gray-600">You can start with small amounts and increase your investment as your income grows.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Reduced Market Timing Risk</h3>
+                    <p class="text-gray-600">You don't need to worry about timing the market, as you're investing regularly regardless of market conditions.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Tax Efficiency</h3>
+                    <p class="text-gray-600">Certain SIP investments in tax-saving mutual funds can help you save on taxes under Section 80C.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Bergman</h3>
+                    <p>Your trusted partner in financial planning and wealth creation.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../about-us.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="../team.html" class="hover:text-blue-400">Team</a></li>
+                        <li><a href="../privacy-policy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                        <li><a href="../returns-refunds.html" class="hover:text-blue-400">Returns & Refunds</a></li>
+                        <li><a href="../whats-new.html" class="hover:text-blue-400">What's New</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../finology-subscriptions.html" class="hover:text-blue-400">Bergman Subscriptions</a></li>
+                        <li><a href="../recipe.html" class="hover:text-blue-400">Recipe</a></li>
+                        <li><a href="../quest.html" class="hover:text-blue-400">Quest</a></li>
+                        <li><a href="../ticker.html" class="hover:text-blue-400">Ticker</a></li>
+                        <li><a href="../select.html" class="hover:text-blue-400">Select</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Top Calculators</h3>
+                    <ul class="space-y-2">
+                        <li><a href="lumpsum.html" class="hover:text-blue-400">Lumpsum Calculator</a></li>
+                        <li><a href="sip.html" class="hover:text-blue-400">SIP Calculator</a></li>
+                        <li><a href="step-up.html" class="hover:text-blue-400">Step-up Calculator</a></li>
+                        <li><a href="dcf.html" class="hover:text-blue-400">DCF Calculator</a></li>
+                        <li><a href="goal-planning-sip.html" class="hover:text-blue-400">Goal Planning - SIP Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="mt-2">渝ICP备2024032264号</p>
+                        <p>Contact Us: ytsgabcde087@2925.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Language selector
+        document.getElementById('language-selector').addEventListener('change', function(e) {
+            const language = e.target.value;
+            // Implement language switching logic here
+        });
+
+        // SIP Calculator
+        document.getElementById('sip-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const monthlyInvestment = parseFloat(document.getElementById('monthly-investment').value);
+            const rate = parseFloat(document.getElementById('expected-return').value) / 100;
+            const time = parseInt(document.getElementById('time-period').value);
+            const annualIncrease = parseFloat(document.getElementById('annual-increase').value) / 100;
+            
+            // Calculate results
+            let totalInvestment = 0;
+            let finalAmount = 0;
+            const yearlyData = [];
+            
+            for (let year = 1; year <= time; year++) {
+                // Calculate investment for this year (with annual increase)
+                const yearInvestment = monthlyInvestment * 12 * Math.pow(1 + annualIncrease, year - 1);
+                totalInvestment += yearInvestment;
+                
+                // Calculate returns for this year
+                let yearEndAmount = 0;
+                for (let month = 1; month <= 12; month++) {
+                    const monthInvestment = monthlyInvestment * Math.pow(1 + annualIncrease, year - 1);
+                    yearEndAmount = (yearEndAmount + monthInvestment) * (1 + rate/12);
+                }
+                
+                finalAmount = yearEndAmount;
+                yearlyData.push({
+                    year: year,
+                    investment: yearInvestment,
+                    total: finalAmount,
+                    returns: finalAmount - totalInvestment
+                });
+            }
+            
+            const totalReturns = finalAmount - totalInvestment;
+            const annualGrowth = (Math.pow(finalAmount/totalInvestment, 1/time) - 1) * 100;
+            
+            // Update results
+            document.getElementById('result-investment').textContent = formatCurrency(totalInvestment);
+            document.getElementById('result-returns').textContent = formatCurrency(totalReturns);
+            document.getElementById('result-final').textContent = formatCurrency(finalAmount);
+            document.getElementById('result-growth').textContent = annualGrowth.toFixed(2) + '%';
+            
+            // Generate yearly breakdown
+            generateYearlyBreakdown(yearlyData);
+            
+            // Generate chart
+            generateChart(yearlyData);
+        });
+
+        // Format currency
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        // Generate yearly breakdown
+        function generateYearlyBreakdown(yearlyData) {
+            const tbody = document.getElementById('yearly-breakdown');
+            tbody.innerHTML = '';
+            
+            yearlyData.forEach((data, index) => {
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-gray-50' : '';
+                
+                row.innerHTML = `
+                    <td class="py-2 px-4">${data.year}</td>
+                    <td class="py-2 px-4 text-right">${formatCurrency(data.investment)}</td>
+                    <td class="py-2 px-4 text-right">${formatCurrency(data.returns)}</td>
+                    <td class="py-2 px-4 text-right font-medium">${formatCurrency(data.total)}</td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // Generate chart
+        function generateChart(yearlyData) {
+            const ctx = document.getElementById('growth-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.growthChart) {
+                window.growthChart.destroy();
+            }
+            
+            // Prepare data
+            const labels = yearlyData.map(data => data.year);
+            const investmentData = yearlyData.map(data => data.investment);
+            const totalData = yearlyData.map(data => data.total);
+            
+            // Create chart
+            window.growthChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Investment',
+                            data: investmentData,
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            fill: true
+                        },
+                        {
+                            label: 'Total Value',
+                            data: totalData,
+                            borderColor: 'rgb(54, 162, 235)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + formatCurrency(context.raw);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) {
+                                    return formatCurrency(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize chart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const monthlyInvestment = 10000;
+            const rate = 0.12;
+            const time = 10;
+            const annualIncrease = 0.10;
+            
+            let totalInvestment = 0;
+            let finalAmount = 0;
+            const yearlyData = [];
+            
+            for (let year = 1; year <= time; year++) {
+                const yearInvestment = monthlyInvestment * 12 * Math.pow(1 + annualIncrease, year - 1);
+                totalInvestment += yearInvestment;
+                
+                let yearEndAmount = 0;
+                for (let month = 1; month <= 12; month++) {
+                    const monthInvestment = monthlyInvestment * Math.pow(1 + annualIncrease, year - 1);
+                    yearEndAmount = (yearEndAmount + monthInvestment) * (1 + rate/12);
+                }
+                
+                finalAmount = yearEndAmount;
+                yearlyData.push({
+                    year: year,
+                    investment: yearInvestment,
+                    total: finalAmount,
+                    returns: finalAmount - totalInvestment
+                });
+            }
+            
+            generateChart(yearlyData);
+        });
+    </script>
+</body>
+</html> 

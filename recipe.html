@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Recipes | Step Up SIP Calculator Portfolio Strategies</title>
+    <meta name="description" content="Discover proven investment recipes and portfolio strategies for your Step Up SIP Calculator investments. Learn how to optimize your investment returns with our expert guidance.">
+    <link rel="canonical" href="https://bczabcd.com/recipe" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">Step Up SIP Calculator</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Step Up SIP Calculator Subscriptions</a>
+                    <a href="ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="recipe.html" class="text-blue-600">Recipe</a>
+                    <a href="quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select id="language-selector" class="border rounded p-1">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="es">Español</option>
+                    </select>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-2 mt-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Step Up SIP Calculator Subscriptions</a>
+                    <a href="ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="recipe.html" class="text-blue-600">Recipe</a>
+                    <a href="quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-2">
+        <nav class="text-sm">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="index.html" class="text-blue-600 hover:text-blue-800">Home</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-500">Recipe</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8">Investment Recipes</h1>
+
+        <!-- Featured Recipes -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Featured Investment Recipes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Conservative Recipe -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Conservative Growth</h3>
+                        <p class="text-gray-600 mb-4">A balanced approach focusing on stable returns with moderate risk.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                40% Bonds
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                30% Large Cap Stocks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                20% Mid Cap Stocks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                10% Cash
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 view-details-btn" data-recipe="Conservative Growth">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Moderate Recipe -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Moderate Growth</h3>
+                        <p class="text-gray-600 mb-4">Balanced growth strategy with moderate risk tolerance.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                30% Bonds
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                40% Large Cap Stocks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                20% Mid Cap Stocks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                10% Small Cap Stocks
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 view-details-btn" data-recipe="Moderate Growth">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Aggressive Recipe -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Aggressive Growth</h3>
+                        <p class="text-gray-600 mb-4">Maximum growth potential with higher risk tolerance.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                20% Bonds
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                40% Large Cap Stocks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                30% Mid Cap Stocks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                10% International Stocks
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 view-details-btn" data-recipe="Aggressive Growth">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Benefits -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Why Use Our Investment Recipes?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Expert-Crafted Strategies</h3>
+                    <p>Our recipes are developed by financial experts with years of market experience.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Customizable Plans</h3>
+                    <p>Adapt our recipes to match your specific investment goals and risk tolerance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Step Up SIP Calculator</h3>
+                    <p>Your trusted partner in financial planning and wealth creation.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about-us.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="team.html" class="hover:text-blue-400">Team</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                        <li><a href="returns-refunds.html" class="hover:text-blue-400">Returns & Refunds</a></li>
+                        <li><a href="whats-new.html" class="hover:text-blue-400">What's New</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./finology-subscriptions.html" class="hover:text-blue-400">Step Up SIP Calculator Subscriptions</a></li>
+                        <li><a href="recipe.html" class="hover:text-blue-400">Recipe</a></li>
+                        <li><a href="quest.html" class="hover:text-blue-400">Quest</a></li>
+                        <li><a href="ticker.html" class="hover:text-blue-400">Ticker</a></li>
+                        <li><a href="select.html" class="hover:text-blue-400">Select</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Top Calculators</h3>
+                    <ul class="space-y-2">
+                        <li><a href="lumpsum.html" class="hover:text-blue-400">Lumpsum Calculator</a></li>
+                        <li><a href="sip.html" class="hover:text-blue-400">SIP Calculator</a></li>
+                        <li><a href="step-up.html" class="hover:text-blue-400">Step-up Calculator</a></li>
+                        <li><a href="dcf.html" class="hover:text-blue-400">DCF Calculator</a></li>
+                        <li><a href="goal-planning-sip.html" class="hover:text-blue-400">Goal Planning - SIP Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <div class="text-center">
+                    <p class="mt-2">渝ICP备2024032264号</p>
+                    <p>Contact Us: ytsgabcde087@2925.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Language selector
+        document.getElementById('language-selector').addEventListener('change', function(e) {
+            const language = e.target.value;
+            // Implement language switching logic here
+        });
+
+        // Recipe card buttons functionality
+        document.querySelectorAll('.view-details-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const recipeName = this.getAttribute('data-recipe');
+                showRecipeDetailsModal(recipeName);
+            });
+        });
+
+        function showRecipeDetailsModal(recipeName) {
+            // Create modal HTML
+            const modalHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold">${recipeName} Details</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Investment Strategy</h4>
+                                <p class="text-gray-600">This recipe is designed for ${recipeName.toLowerCase()} investors looking to achieve their financial goals through a balanced approach to risk and returns.</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Recommended Allocation</h4>
+                                <ul class="list-disc list-inside text-gray-600">
+                                    <li>Equity Funds: 60%</li>
+                                    <li>Debt Funds: 30%</li>
+                                    <li>Gold: 10%</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Expected Returns</h4>
+                                <p class="text-gray-600">Based on historical performance, this recipe has the potential to deliver returns in the range of 8-12% annually over the long term.</p>
+                            </div>
+                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors start-recipe-btn" data-recipe="${recipeName}">
+                                Start Using This Recipe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to document
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            // Add close functionality
+            const modal = document.querySelector('.fixed.inset-0');
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.addEventListener('click', () => {
+                modal.remove();
+            });
+
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+
+            // Add functionality to the Start Using This Recipe button
+            const startRecipeBtn = modal.querySelector('.start-recipe-btn');
+            startRecipeBtn.addEventListener('click', () => {
+                const recipeName = startRecipeBtn.getAttribute('data-recipe');
+                startUsingRecipe(recipeName);
+            });
+        }
+
+        function startUsingRecipe(recipeName) {
+            // Create success modal HTML
+            const successModalHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold">Recipe Applied</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="text-center">
+                                <i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i>
+                                <p class="text-gray-600">You have successfully applied the <strong>${recipeName}</strong> recipe to your portfolio.</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Next Steps</h4>
+                                <ul class="list-disc list-inside text-gray-600">
+                                    <li>Review your portfolio allocation</li>
+                                    <li>Set up automatic rebalancing</li>
+                                    <li>Track your progress</li>
+                                </ul>
+                            </div>
+                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors view-portfolio-btn">
+                                View My Portfolio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Remove the previous modal
+            const previousModal = document.querySelector('.fixed.inset-0');
+            if (previousModal) {
+                previousModal.remove();
+            }
+
+            // Add success modal to document
+            document.body.insertAdjacentHTML('beforeend', successModalHTML);
+
+            // Add close functionality
+            const successModal = document.querySelector('.fixed.inset-0');
+            const closeBtn = successModal.querySelector('.close-modal');
+            closeBtn.addEventListener('click', () => {
+                successModal.remove();
+            });
+
+            // Close on outside click
+            successModal.addEventListener('click', (e) => {
+                if (e.target === successModal) {
+                    successModal.remove();
+                }
+            });
+
+            // Add functionality to the View My Portfolio button
+            const viewPortfolioBtn = successModal.querySelector('.view-portfolio-btn');
+            viewPortfolioBtn.addEventListener('click', () => {
+                // Remove the success modal
+                successModal.remove();
+                
+                // Show portfolio preview modal
+                showPortfolioPreviewModal(recipeName);
+            });
+        }
+
+        function showPortfolioPreviewModal(recipeName) {
+            // Create portfolio preview modal HTML
+            const portfolioModalHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-4xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold">My Investment Portfolio</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Active Recipe: ${recipeName}</h4>
+                                <p class="text-gray-600">This portfolio is based on the ${recipeName.toLowerCase()} recipe you've selected.</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold mb-4">Portfolio Allocation</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium">Equity Funds</span>
+                                                <span class="text-sm font-medium">60%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 60%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium">Debt Funds</span>
+                                                <span class="text-sm font-medium">30%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 30%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium">Gold</span>
+                                                <span class="text-sm font-medium">10%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 10%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold mb-4">Portfolio Performance</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Total Value</span>
+                                            <span class="font-semibold">$25,000</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Total Return</span>
+                                            <span class="font-semibold text-green-500">+$2,500 (10%)</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Time Period</span>
+                                            <span class="font-semibold">1 Year</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold mb-4">Recommended Actions</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Set up automatic monthly contributions</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Enable quarterly rebalancing</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Review performance every 6 months</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end space-x-4">
+                                <button class="bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition-colors close-modal">
+                                    Close
+                                </button>
+                                <button class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors customize-portfolio-btn">
+                                    Customize Portfolio
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add portfolio modal to document
+            document.body.insertAdjacentHTML('beforeend', portfolioModalHTML);
+
+            // Add close functionality
+            const portfolioModal = document.querySelector('.fixed.inset-0');
+            const closeBtns = portfolioModal.querySelectorAll('.close-modal');
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    portfolioModal.remove();
+                });
+            });
+
+            // Close on outside click
+            portfolioModal.addEventListener('click', (e) => {
+                if (e.target === portfolioModal) {
+                    portfolioModal.remove();
+                }
+            });
+
+            // Add functionality to the Customize Portfolio button
+            const customizeBtn = portfolioModal.querySelector('.customize-portfolio-btn');
+            customizeBtn.addEventListener('click', () => {
+                // Remove the portfolio modal
+                portfolioModal.remove();
+                
+                // Show portfolio customization modal
+                showPortfolioCustomizationModal(recipeName);
+            });
+        }
+
+        function showPortfolioCustomizationModal(recipeName) {
+            // Create portfolio customization modal HTML
+            const customizationModalHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-4xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold">Customize Your Portfolio</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Base Recipe: ${recipeName}</h4>
+                                <p class="text-gray-600">Customize the allocation percentages to match your specific investment goals and risk tolerance.</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold mb-4">Asset Allocation</h4>
+                                <div class="space-y-6">
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Equity Funds</span>
+                                            <span class="text-sm font-medium equity-value">60%</span>
+                                        </div>
+                                        <input type="range" min="0" max="100" value="60" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer equity-slider">
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Debt Funds</span>
+                                            <span class="text-sm font-medium debt-value">30%</span>
+                                        </div>
+                                        <input type="range" min="0" max="100" value="30" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer debt-slider">
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Gold</span>
+                                            <span class="text-sm font-medium gold-value">10%</span>
+                                        </div>
+                                        <input type="range" min="0" max="100" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer gold-slider">
+                                    </div>
+                                </div>
+                                <div class="mt-4 p-3 bg-gray-100 rounded-lg">
+                                    <p class="text-sm text-gray-600">Total Allocation: <span class="font-semibold total-allocation">100%</span></p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold mb-4">Investment Preferences</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Risk Tolerance</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md risk-tolerance">
+                                            <option value="conservative">Conservative</option>
+                                            <option value="moderate" selected>Moderate</option>
+                                            <option value="aggressive">Aggressive</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Investment Horizon</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md investment-horizon">
+                                            <option value="short">Short-term (1-3 years)</option>
+                                            <option value="medium" selected>Medium-term (3-7 years)</option>
+                                            <option value="long">Long-term (7+ years)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Rebalancing Frequency</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded-md rebalancing-frequency">
+                                            <option value="monthly">Monthly</option>
+                                            <option value="quarterly" selected>Quarterly</option>
+                                            <option value="annually">Annually</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end space-x-4">
+                                <button class="bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition-colors close-modal">
+                                    Cancel
+                                </button>
+                                <button class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors save-customization-btn">
+                                    Save Customization
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add customization modal to document
+            document.body.insertAdjacentHTML('beforeend', customizationModalHTML);
+
+            // Add close functionality
+            const customizationModal = document.querySelector('.fixed.inset-0');
+            const closeBtns = customizationModal.querySelectorAll('.close-modal');
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    customizationModal.remove();
+                });
+            });
+
+            // Close on outside click
+            customizationModal.addEventListener('click', (e) => {
+                if (e.target === customizationModal) {
+                    customizationModal.remove();
+                }
+            });
+
+            // Add slider functionality
+            const equitySlider = customizationModal.querySelector('.equity-slider');
+            const debtSlider = customizationModal.querySelector('.debt-slider');
+            const goldSlider = customizationModal.querySelector('.gold-slider');
+            
+            const equityValue = customizationModal.querySelector('.equity-value');
+            const debtValue = customizationModal.querySelector('.debt-value');
+            const goldValue = customizationModal.querySelector('.gold-value');
+            const totalAllocation = customizationModal.querySelector('.total-allocation');
+            
+            function updateTotalAllocation() {
+                const equity = parseInt(equitySlider.value);
+                const debt = parseInt(debtSlider.value);
+                const gold = parseInt(goldSlider.value);
+                
+                const total = equity + debt + gold;
+                totalAllocation.textContent = total + '%';
+                
+                // Update the display values
+                equityValue.textContent = equity + '%';
+                debtValue.textContent = debt + '%';
+                goldValue.textContent = gold + '%';
+                
+                // Adjust other sliders if total is not 100%
+                if (total !== 100) {
+                    const diff = 100 - total;
+                    if (diff > 0) {
+                        // Add the difference to the largest allocation
+                        if (equity >= debt && equity >= gold) {
+                            equitySlider.value = equity + diff;
+                            equityValue.textContent = (equity + diff) + '%';
+                        } else if (debt >= equity && debt >= gold) {
+                            debtSlider.value = debt + diff;
+                            debtValue.textContent = (debt + diff) + '%';
+                        } else {
+                            goldSlider.value = gold + diff;
+                            goldValue.textContent = (gold + diff) + '%';
+                        }
+                    }
+                }
+            }
+            
+            equitySlider.addEventListener('input', updateTotalAllocation);
+            debtSlider.addEventListener('input', updateTotalAllocation);
+            goldSlider.addEventListener('input', updateTotalAllocation);
+            
+            // Add functionality to the Save Customization button
+            const saveBtn = customizationModal.querySelector('.save-customization-btn');
+            saveBtn.addEventListener('click', () => {
+                // Get the customized values
+                const equity = parseInt(equitySlider.value);
+                const debt = parseInt(debtSlider.value);
+                const gold = parseInt(goldSlider.value);
+                const riskTolerance = customizationModal.querySelector('.risk-tolerance').value;
+                const investmentHorizon = customizationModal.querySelector('.investment-horizon').value;
+                const rebalancingFrequency = customizationModal.querySelector('.rebalancing-frequency').value;
+                
+                // Remove the customization modal
+                customizationModal.remove();
+                
+                // Show confirmation modal
+                showCustomizationConfirmationModal(recipeName, equity, debt, gold, riskTolerance, investmentHorizon, rebalancingFrequency);
+            });
+        }
+        
+        function showCustomizationConfirmationModal(recipeName, equity, debt, gold, riskTolerance, investmentHorizon, rebalancingFrequency) {
+            // Create confirmation modal HTML
+            const confirmationModalHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold">Portfolio Customization Confirmed</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <p class="text-green-800">Your portfolio has been successfully customized!</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold mb-4">Your Customized Allocation</h4>
+                                <div class="space-y-4">
+                                    <div class="flex justify-between">
+                                        <span>Equity Funds</span>
+                                        <span class="font-semibold">${equity}%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Debt Funds</span>
+                                        <span class="font-semibold">${debt}%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Gold</span>
+                                        <span class="font-semibold">${gold}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Your Preferences</h4>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span>Risk Tolerance</span>
+                                        <span class="font-semibold">${capitalizeFirstLetter(riskTolerance)}</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Investment Horizon</span>
+                                        <span class="font-semibold">${capitalizeFirstLetter(investmentHorizon)}</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Rebalancing</span>
+                                        <span class="font-semibold">${capitalizeFirstLetter(rebalancingFrequency)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors view-updated-portfolio-btn">
+                                View Updated Portfolio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add confirmation modal to document
+            document.body.insertAdjacentHTML('beforeend', confirmationModalHTML);
+            
+            // Add close functionality
+            const confirmationModal = document.querySelector('.fixed.inset-0');
+            const closeBtn = confirmationModal.querySelector('.close-modal');
+            closeBtn.addEventListener('click', () => {
+                confirmationModal.remove();
+            });
+            
+            // Close on outside click
+            confirmationModal.addEventListener('click', (e) => {
+                if (e.target === confirmationModal) {
+                    confirmationModal.remove();
+                }
+            });
+            
+            // Add functionality to the View Updated Portfolio button
+            const viewUpdatedBtn = confirmationModal.querySelector('.view-updated-portfolio-btn');
+            viewUpdatedBtn.addEventListener('click', () => {
+                // Remove the confirmation modal
+                confirmationModal.remove();
+                
+                // Show updated portfolio modal with the customized allocation
+                showUpdatedPortfolioModal(recipeName, equity, debt, gold);
+            });
+        }
+        
+        function showUpdatedPortfolioModal(recipeName, equity, debt, gold) {
+            // Create updated portfolio modal HTML
+            const updatedPortfolioModalHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg p-8 max-w-4xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-semibold">My Customized Portfolio</h3>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Customized Recipe: ${recipeName}</h4>
+                                <p class="text-gray-600">This portfolio has been customized based on your preferences.</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold mb-4">Portfolio Allocation</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium">Equity Funds</span>
+                                                <span class="text-sm font-medium">${equity}%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: ${equity}%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium">Debt Funds</span>
+                                                <span class="text-sm font-medium">${debt}%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-green-500 h-2.5 rounded-full" style="width: ${debt}%"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium">Gold</span>
+                                                <span class="text-sm font-medium">${gold}%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-yellow-500 h-2.5 rounded-full" style="width: ${gold}%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold mb-4">Portfolio Performance</h4>
+                                    <div class="space-y-4">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Total Value</span>
+                                            <span class="font-semibold">$25,000</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Total Return</span>
+                                            <span class="font-semibold text-green-500">+$2,500 (10%)</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Time Period</span>
+                                            <span class="font-semibold">1 Year</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold mb-4">Next Steps</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Set up automatic monthly contributions</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Enable automatic rebalancing</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Review performance regularly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end space-x-4">
+                                <button class="bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition-colors close-modal">
+                                    Close
+                                </button>
+                                <button class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors download-portfolio-btn">
+                                    Download Portfolio Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add updated portfolio modal to document
+            document.body.insertAdjacentHTML('beforeend', updatedPortfolioModalHTML);
+            
+            // Add close functionality
+            const updatedPortfolioModal = document.querySelector('.fixed.inset-0');
+            const closeBtns = updatedPortfolioModal.querySelectorAll('.close-modal');
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    updatedPortfolioModal.remove();
+                });
+            });
+            
+            // Close on outside click
+            updatedPortfolioModal.addEventListener('click', (e) => {
+                if (e.target === updatedPortfolioModal) {
+                    updatedPortfolioModal.remove();
+                }
+            });
+            
+            // Add functionality to the Download Portfolio Report button
+            const downloadBtn = updatedPortfolioModal.querySelector('.download-portfolio-btn');
+            downloadBtn.addEventListener('click', () => {
+                // Show loading state
+                downloadBtn.disabled = true;
+                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating Report...';
+                
+                // Create the report content
+                const reportContent = {
+                    title: 'Step Up SIP Calculator Investment Portfolio Report',
+                    date: new Date().toLocaleDateString(),
+                    recipe: recipeName,
+                    allocation: {
+                        equity: equity,
+                        debt: debt,
+                        gold: gold
+                    },
+                    performance: {
+                        totalValue: '$25,000',
+                        totalReturn: '+$2,500 (10%)',
+                        timePeriod: '1 Year'
+                    }
+                };
+                
+                // Generate PDF using jsPDF
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+                script.onload = () => {
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+                    
+                    // Add company logo and header
+                    doc.setFontSize(20);
+                    doc.text('Step Up SIP Calculator Investment Portfolio Report', 20, 20);
+                    doc.setFontSize(12);
+                    doc.text(`Generated on: ${reportContent.date}`, 20, 30);
+                    
+                    // Add recipe information
+                    doc.setFontSize(16);
+                    doc.text('Portfolio Strategy', 20, 45);
+                    doc.setFontSize(12);
+                    doc.text(`Active Recipe: ${recipeName}`, 20, 55);
+                    
+                    // Add allocation chart
+                    doc.setFontSize(16);
+                    doc.text('Asset Allocation', 20, 75);
+                    doc.setFontSize(12);
+                    doc.text(`Equity Funds: ${equity}%`, 20, 85);
+                    doc.text(`Debt Funds: ${debt}%`, 20, 95);
+                    doc.text(`Gold: ${gold}%`, 20, 105);
+                    
+                    // Add performance metrics
+                    doc.setFontSize(16);
+                    doc.text('Performance Metrics', 20, 125);
+                    doc.setFontSize(12);
+                    doc.text(`Total Portfolio Value: ${reportContent.performance.totalValue}`, 20, 135);
+                    doc.text(`Total Return: ${reportContent.performance.totalReturn}`, 20, 145);
+                    doc.text(`Time Period: ${reportContent.performance.timePeriod}`, 20, 155);
+                    
+                    // Add recommendations
+                    doc.setFontSize(16);
+                    doc.text('Recommendations', 20, 175);
+                    doc.setFontSize(12);
+                    doc.text('• Set up automatic monthly contributions', 20, 185);
+                    doc.text('• Enable automatic rebalancing', 20, 195);
+                    doc.text('• Review performance regularly', 20, 205);
+                    
+                    // Add footer
+                    doc.setFontSize(10);
+                    doc.text('This report is generated by Step Up SIP Calculator Investment Platform', 20, 280);
+                    doc.text('Contact: ytsgabcde087@2925.com', 20, 285);
+                    
+                    // Save the PDF
+                    doc.save(`portfolio-report-${recipeName.toLowerCase().replace(/\s+/g, '-')}.pdf`);
+                    
+                    // Reset button state
+                    downloadBtn.disabled = false;
+                    downloadBtn.innerHTML = 'Download Portfolio Report';
+                    
+                    // Show success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg';
+                    successMessage.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Report downloaded successfully!';
+                    document.body.appendChild(successMessage);
+                    
+                    // Remove success message after 3 seconds
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 3000);
+                };
+                document.head.appendChild(script);
+            });
+        }
+        
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    </script>
+</body>
+</html> 

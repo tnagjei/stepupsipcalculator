@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Test | Bergman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Simple Calculator Test</h1>
+        
+        <form id="test-form" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 mb-2">Number 1</label>
+                <input type="number" id="num1" class="w-full p-2 border rounded" value="10">
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2">Number 2</label>
+                <input type="number" id="num2" class="w-full p-2 border rounded" value="5">
+            </div>
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 w-full">Calculate</button>
+        </form>
+        
+        <div class="mt-6">
+            <h2 class="text-xl font-semibold mb-2">Result</h2>
+            <p id="result" class="text-2xl font-bold text-blue-600">0</p>
+        </div>
+        
+        <div class="mt-6">
+            <canvas id="test-chart" height="200"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Simple calculator
+        document.getElementById('test-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            
+            const sum = num1 + num2;
+            document.getElementById('result').textContent = sum;
+            
+            // Update chart
+            updateChart(num1, num2, sum);
+        });
+        
+        // Simple chart
+        function updateChart(num1, num2, sum) {
+            const ctx = document.getElementById('test-chart').getContext('2d');
+            
+            if (window.testChart) {
+                window.testChart.destroy();
+            }
+            
+            window.testChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Number 1', 'Number 2', 'Sum'],
+                    datasets: [{
+                        label: 'Values',
+                        data: [num1, num2, sum],
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(153, 102, 255, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgb(75, 192, 192)',
+                            'rgb(54, 162, 235)',
+                            'rgb(153, 102, 255)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Initialize chart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const num1 = 10;
+            const num2 = 5;
+            const sum = num1 + num2;
+            document.getElementById('result').textContent = sum;
+            updateChart(num1, num2, sum);
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Quests | Growth Learning Journey</title>
+    <meta name="description" content="Embark on an exciting investment learning journey with Growth's interactive quests. Master investment strategies and grow your financial knowledge.">
+    <link rel="canonical" href="https://bczabcd.com/quest" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">Growth</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Growth Subscriptions</a>
+                    <a href="ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="quest.html" class="text-blue-600">Quest</a>
+                    <a href="select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select id="language-selector" class="border rounded p-1">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="es">Español</option>
+                    </select>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-2 mt-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Growth Subscriptions</a>
+                    <a href="ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="quest.html" class="text-blue-600">Quest</a>
+                    <a href="select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-2">
+        <nav class="text-sm">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="index.html" class="text-blue-600 hover:text-blue-800">Home</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-500">Quest</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8">Investment Quests</h1>
+
+        <!-- Quest Categories -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Choose Your Quest</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Beginner Quest -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400 text-2xl mr-2"></i>
+                            <h3 class="text-xl font-semibold">Beginner's Journey</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Start your investment journey with fundamental concepts and basic strategies.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Understanding SIP Basics
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Risk Assessment
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Portfolio Creation
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 start-quest-btn" data-quest="retirement">Start Quest</button>
+                    </div>
+                </div>
+
+                <!-- Intermediate Quest -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400 text-2xl mr-2"></i>
+                            <i class="fas fa-star text-yellow-400 text-2xl mr-2"></i>
+                            <h3 class="text-xl font-semibold">Advanced Strategies</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Master advanced investment techniques and portfolio optimization.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Market Analysis
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Risk Management
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Portfolio Rebalancing
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 start-quest-btn" data-quest="education">Start Quest</button>
+                    </div>
+                </div>
+
+                <!-- Expert Quest -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-yellow-400 text-2xl mr-2"></i>
+                            <i class="fas fa-star text-yellow-400 text-2xl mr-2"></i>
+                            <i class="fas fa-star text-yellow-400 text-2xl mr-2"></i>
+                            <h3 class="text-xl font-semibold">Expert Mastery</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Achieve mastery in investment strategies and market analysis.</p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Advanced Analytics
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Custom Strategies
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Market Timing
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 start-quest-btn" data-quest="wealth">Start Quest</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quest Benefits -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Quest Benefits</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Interactive Learning</h3>
+                    <p>Learn through hands-on experience with our interactive quests and real-world scenarios.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Progress Tracking</h3>
+                    <p>Track your learning progress and earn achievements as you complete quests.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Growth</h3>
+                    <p>Your trusted partner in financial planning and wealth creation.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about-us.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="team.html" class="hover:text-blue-400">Team</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="finology-subscriptions.html" class="hover:text-blue-400">Growth Subscriptions</a></li>
+                        <li><a href="recipe.html" class="hover:text-blue-400">Recipe</a></li>
+                        <li><a href="quest.html" class="hover:text-blue-400">Quest</a></li>
+                        <li><a href="ticker.html" class="hover:text-blue-400">Ticker</a></li>
+                        <li><a href="select.html" class="hover:text-blue-400">Select</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Top Calculators</h3>
+                    <ul class="space-y-2">
+                        <li><a href="calculators/lumpsum.html" class="hover:text-blue-400">Lumpsum Calculator</a></li>
+                        <li><a href="calculators/sip.html" class="hover:text-blue-400">SIP Calculator</a></li>
+                        <li><a href="calculators/step-up.html" class="hover:text-blue-400">Step-up Calculator</a></li>
+                        <li><a href="calculators/dcf.html" class="hover:text-blue-400">DCF Calculator</a></li>
+                        <li><a href="calculators/goal-planning-sip.html" class="hover:text-blue-400">Goal Planning - SIP Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <div class="text-center">
+                    <p class="mt-2">渝ICP备2024032264号</p>
+                    <p>Contact Us: ytsgabcde087@2925.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Language selector
+        document.getElementById('language-selector').addEventListener('change', function(e) {
+            const language = e.target.value;
+            // Implement language switching logic here
+        });
+
+        // Quest functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all Start Quest buttons
+            const startButtons = document.querySelectorAll('.start-quest-btn');
+            
+            // Add click event listeners to each button
+            startButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const questType = this.getAttribute('data-quest');
+                    startQuest(questType);
+                });
+            });
+
+            // Function to handle quest start
+            function startQuest(questType) {
+                // Create and show quest modal
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                modal.innerHTML = `
+                    <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">${getQuestTitle(questType)}</h2>
+                            <button class="close-modal text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="quest-content">
+                            ${getQuestContent(questType)}
+                        </div>
+                        <div class="mt-6 flex justify-end space-x-4">
+                            <button class="cancel-quest px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Cancel</button>
+                            <button class="confirm-quest px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Start Quest</button>
+                        </div>
+                    </div>
+                `;
+
+                // Add event listeners for modal buttons
+                modal.querySelector('.close-modal').addEventListener('click', () => {
+                    modal.remove();
+                });
+
+                modal.querySelector('.cancel-quest').addEventListener('click', () => {
+                    modal.remove();
+                });
+
+                modal.querySelector('.confirm-quest').addEventListener('click', () => {
+                    startQuestProgress(questType);
+                    modal.remove();
+                });
+
+                document.body.appendChild(modal);
+            }
+
+            // Function to get quest title
+            function getQuestTitle(questType) {
+                const titles = {
+                    'retirement': 'Retirement Planning Quest',
+                    'education': 'Education Planning Quest',
+                    'wealth': 'Wealth Building Quest'
+                };
+                return titles[questType] || 'Quest';
+            }
+
+            // Function to get quest content
+            function getQuestContent(questType) {
+                const contents = {
+                    'retirement': `
+                        <div class="space-y-4">
+                            <p class="text-gray-700">This quest will help you plan for a comfortable retirement. You'll need to:</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Set your retirement goals</li>
+                                <li>Calculate required corpus</li>
+                                <li>Choose investment strategies</li>
+                                <li>Track your progress</li>
+                            </ul>
+                            <div class="bg-blue-50 p-4 rounded">
+                                <p class="text-blue-800">Estimated duration: 4-6 weeks</p>
+                            </div>
+                        </div>
+                    `,
+                    'education': `
+                        <div class="space-y-4">
+                            <p class="text-gray-700">This quest will guide you through planning for education expenses. You'll need to:</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Define education goals</li>
+                                <li>Estimate future costs</li>
+                                <li>Select investment options</li>
+                                <li>Monitor your savings</li>
+                            </ul>
+                            <div class="bg-blue-50 p-4 rounded">
+                                <p class="text-blue-800">Estimated duration: 3-4 weeks</p>
+                            </div>
+                        </div>
+                    `,
+                    'wealth': `
+                        <div class="space-y-4">
+                            <p class="text-gray-700">This quest will help you build long-term wealth. You'll need to:</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Set wealth creation goals</li>
+                                <li>Develop investment strategy</li>
+                                <li>Diversify your portfolio</li>
+                                <li>Track your growth</li>
+                            </ul>
+                            <div class="bg-blue-50 p-4 rounded">
+                                <p class="text-blue-800">Estimated duration: 6-8 weeks</p>
+                            </div>
+                        </div>
+                    `
+                };
+                return contents[questType] || '';
+            }
+
+            // Function to start quest progress
+            function startQuestProgress(questType) {
+                // Create progress tracking modal
+                const progressModal = document.createElement('div');
+                progressModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                progressModal.innerHTML = `
+                    <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">${getQuestTitle(questType)} - Progress</h2>
+                            <button class="close-progress text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="progress-content">
+                            <div class="mb-6">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700">Overall Progress</span>
+                                    <span class="text-blue-600">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                ${getQuestSteps(questType)}
+                            </div>
+                        </div>
+                        <div class="mt-6 flex justify-end">
+                            <button class="close-progress px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Close</button>
+                        </div>
+                    </div>
+                `;
+
+                // Add event listeners for progress modal
+                progressModal.querySelectorAll('.close-progress').forEach(button => {
+                    button.addEventListener('click', () => {
+                        progressModal.remove();
+                    });
+                });
+
+                document.body.appendChild(progressModal);
+            }
+
+            // Function to get quest steps
+            function getQuestSteps(questType) {
+                const steps = {
+                    'retirement': `
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="1">
+                                <span class="text-gray-700">Set retirement age and lifestyle goals</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="2">
+                                <span class="text-gray-700">Calculate required retirement corpus</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="3">
+                                <span class="text-gray-700">Choose investment strategies</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="4">
+                                <span class="text-gray-700">Set up regular investment plan</span>
+                            </div>
+                        </div>
+                    `,
+                    'education': `
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="1">
+                                <span class="text-gray-700">Define education goals and timeline</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="2">
+                                <span class="text-gray-700">Estimate future education costs</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="3">
+                                <span class="text-gray-700">Select appropriate investment options</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="4">
+                                <span class="text-gray-700">Create education savings plan</span>
+                            </div>
+                        </div>
+                    `,
+                    'wealth': `
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="1">
+                                <span class="text-gray-700">Set wealth creation goals</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="2">
+                                <span class="text-gray-700">Develop investment strategy</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="3">
+                                <span class="text-gray-700">Create diversified portfolio</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" class="quest-step" data-step="4">
+                                <span class="text-gray-700">Set up regular review system</span>
+                            </div>
+                        </div>
+                    `
+                };
+                return steps[questType] || '';
+            }
+
+            // Add event listeners for quest step checkboxes
+            document.addEventListener('change', function(e) {
+                if (e.target.classList.contains('quest-step')) {
+                    updateProgress();
+                }
+            });
+
+            // Function to update progress
+            function updateProgress() {
+                const progressModal = document.querySelector('.progress-content');
+                if (!progressModal) return;
+
+                const checkboxes = progressModal.querySelectorAll('.quest-step');
+                const totalSteps = checkboxes.length;
+                const completedSteps = Array.from(checkboxes).filter(cb => cb.checked).length;
+                const progress = (completedSteps / totalSteps) * 100;
+
+                const progressBar = progressModal.querySelector('.progress-bar');
+                const progressText = progressModal.querySelector('.text-blue-600');
+
+                if (progressBar && progressText) {
+                    progressBar.style.width = `${progress}%`;
+                    progressText.textContent = `${Math.round(progress)}%`;
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCF Calculator | Bergman</title>
+    <meta name="description" content="Calculate the present value of future cash flows using our Discounted Cash Flow (DCF) Calculator.">
+    <link rel="canonical" href="https://bczabcd.com/calculators/dcf" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-blue-600">Bergman</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="../finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Bergman Subscriptions</a>
+                    <a href="../ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="../recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="../quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="../select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="../inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select id="language-selector" class="border rounded p-1">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="es">Español</option>
+                    </select>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-2 mt-4">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="../finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Bergman Subscriptions</a>
+                    <a href="../ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="../recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="../quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="../select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="../inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-2">
+        <nav class="text-sm">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-800">Home</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <a href="../finology-subscriptions.html" class="text-blue-600 hover:text-blue-800">Financial Calculators</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-500">DCF Calculator</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-2">DCF Calculator</h1>
+        <p class="text-gray-600 mb-8">Calculate the present value of future cash flows using Discounted Cash Flow (DCF) analysis.</p>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Calculator Form -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Cash Flow Details</h2>
+                <form id="dcf-form" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Initial Investment ($)</label>
+                        <input type="number" id="initial-investment" class="w-full p-2 border rounded" required min="0" value="100000">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Discount Rate (%)</label>
+                        <input type="number" id="discount-rate" class="w-full p-2 border rounded" required min="0" max="100" value="10">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Number of Years</label>
+                        <input type="number" id="number-of-years" class="w-full p-2 border rounded" required min="1" max="20" value="5">
+                    </div>
+                    <div id="cash-flows-container">
+                        <label class="block text-gray-700 mb-2">Annual Cash Flows ($)</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-gray-600">Year 1:</span>
+                                <input type="number" class="cash-flow w-full p-2 border rounded" required min="0" value="20000">
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-gray-600">Year 2:</span>
+                                <input type="number" class="cash-flow w-full p-2 border rounded" required min="0" value="25000">
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-gray-600">Year 3:</span>
+                                <input type="number" class="cash-flow w-full p-2 border rounded" required min="0" value="30000">
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-gray-600">Year 4:</span>
+                                <input type="number" class="cash-flow w-full p-2 border rounded" required min="0" value="35000">
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-gray-600">Year 5:</span>
+                                <input type="number" class="cash-flow w-full p-2 border rounded" required min="0" value="40000">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Terminal Value Growth Rate (%)</label>
+                        <input type="number" id="terminal-growth" class="w-full p-2 border rounded" required min="0" max="20" value="3">
+                    </div>
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 w-full">Calculate</button>
+                </form>
+            </div>
+            
+            <!-- Results -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Results</h2>
+                <div id="results" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Present Value of Cash Flows</p>
+                            <p id="result-pv-cash-flows" class="text-xl font-bold">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Present Value of Terminal Value</p>
+                            <p id="result-pv-terminal" class="text-xl font-bold">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Total Present Value</p>
+                            <p id="result-total-pv" class="text-xl font-bold text-blue-600">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Net Present Value</p>
+                            <p id="result-npv" class="text-xl font-bold text-green-600">$0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="font-medium mb-2">Cash Flow Timeline</h3>
+                        <canvas id="cash-flow-chart" height="200"></canvas>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="font-medium mb-2">Year-wise Breakdown</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="py-2 px-4 text-left">Year</th>
+                                        <th class="py-2 px-4 text-right">Cash Flow</th>
+                                        <th class="py-2 px-4 text-right">Discount Factor</th>
+                                        <th class="py-2 px-4 text-right">Present Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="yearly-breakdown">
+                                    <!-- Yearly breakdown will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- How It Works -->
+        <div class="mt-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">How DCF Analysis Works</h2>
+            <div class="prose max-w-none">
+                <p>Discounted Cash Flow (DCF) analysis is a valuation method used to estimate the value of an investment based on its expected future cash flows. DCF analysis attempts to determine the value of an investment today, based on projections of how much money it will generate in the future.</p>
+                <p>The DCF formula is:</p>
+                <div class="bg-gray-100 p-4 rounded my-4 text-center">
+                    <p class="font-mono">PV = CF₁/(1+r)¹ + CF₂/(1+r)² + ... + CFₙ/(1+r)ⁿ + TV/(1+r)ⁿ</p>
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>PV = Present Value</li>
+                    <li>CF = Cash Flow for each period</li>
+                    <li>r = Discount Rate</li>
+                    <li>n = Number of periods</li>
+                    <li>TV = Terminal Value</li>
+                </ul>
+                <p>The Terminal Value is calculated using the Gordon Growth Model:</p>
+                <div class="bg-gray-100 p-4 rounded my-4 text-center">
+                    <p class="font-mono">TV = CFₙ(1+g)/(r-g)</p>
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>g = Long-term growth rate</li>
+                    <li>CFₙ = Final year's cash flow</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Benefits of DCF Analysis -->
+        <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Benefits of DCF Analysis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium mb-2">Intrinsic Value</h3>
+                    <p class="text-gray-600">DCF analysis helps determine the true intrinsic value of an investment based on its future cash flows.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Time Value of Money</h3>
+                    <p class="text-gray-600">Accounts for the time value of money by discounting future cash flows to their present value.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Long-term Perspective</h3>
+                    <p class="text-gray-600">Provides a long-term view of an investment's value, considering both explicit forecast period and terminal value.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Flexibility</h3>
+                    <p class="text-gray-600">Can be customized to include different growth rates, discount rates, and cash flow patterns.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Decision Making</h3>
+                    <p class="text-gray-600">Helps in making informed investment decisions by comparing present value with initial investment.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Risk Assessment</h3>
+                    <p class="text-gray-600">Allows for sensitivity analysis by adjusting discount rates and growth assumptions.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Bergman</h3>
+                    <p>Your trusted partner in financial planning and wealth creation.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Bergman</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../about-us.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="../team.html" class="hover:text-blue-400">Team</a></li>
+                        <li><a href="../privacy-policy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                        <li><a href="../returns-refunds.html" class="hover:text-blue-400">Returns & Refunds</a></li>
+                        <li><a href="../whats-new.html" class="hover:text-blue-400">What's New</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../finology-subscriptions.html" class="hover:text-blue-400">Bergman Subscriptions</a></li>
+                        <li><a href="../recipe.html" class="hover:text-blue-400">Recipe</a></li>
+                        <li><a href="../quest.html" class="hover:text-blue-400">Quest</a></li>
+                        <li><a href="../ticker.html" class="hover:text-blue-400">Ticker</a></li>
+                        <li><a href="../select.html" class="hover:text-blue-400">Select</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Top Calculators</h3>
+                    <ul class="space-y-2">
+                        <li><a href="lumpsum.html" class="hover:text-blue-400">Lumpsum Calculator</a></li>
+                        <li><a href="sip.html" class="hover:text-blue-400">SIP Calculator</a></li>
+                        <li><a href="step-up.html" class="hover:text-blue-400">Step-up Calculator</a></li>
+                        <li><a href="dcf.html" class="hover:text-blue-400">DCF Calculator</a></li>
+                        <li><a href="goal-planning-sip.html" class="hover:text-blue-400">Goal Planning - SIP Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="mt-2">渝ICP备2024032264号</p>
+                        <p>Contact Us: ytsgabcde087@2925.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Language selector
+        document.getElementById('language-selector').addEventListener('change', function(e) {
+            const language = e.target.value;
+            // Implement language switching logic here
+        });
+
+        // Update cash flow inputs based on number of years
+        document.getElementById('number-of-years').addEventListener('change', function(e) {
+            const numYears = parseInt(e.target.value);
+            const container = document.getElementById('cash-flows-container');
+            const inputs = container.querySelector('.space-y-2');
+            inputs.innerHTML = '';
+            
+            for (let i = 1; i <= numYears; i++) {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-2';
+                div.innerHTML = `
+                    <span class="text-gray-600">Year ${i}:</span>
+                    <input type="number" class="cash-flow w-full p-2 border rounded" required min="0" value="${20000 + (i-1)*5000}">
+                `;
+                inputs.appendChild(div);
+            }
+        });
+
+        // DCF Calculator
+        document.getElementById('dcf-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const initialInvestment = parseFloat(document.getElementById('initial-investment').value);
+            const discountRate = parseFloat(document.getElementById('discount-rate').value) / 100;
+            const numYears = parseInt(document.getElementById('number-of-years').value);
+            const terminalGrowth = parseFloat(document.getElementById('terminal-growth').value) / 100;
+            
+            // Get cash flows
+            const cashFlows = Array.from(document.getElementsByClassName('cash-flow')).map(input => parseFloat(input.value));
+            
+            // Calculate present value of cash flows
+            let pvCashFlows = 0;
+            const yearlyData = [];
+            
+            for (let year = 1; year <= numYears; year++) {
+                const cashFlow = cashFlows[year-1];
+                const discountFactor = 1 / Math.pow(1 + discountRate, year);
+                const presentValue = cashFlow * discountFactor;
+                pvCashFlows += presentValue;
+                
+                yearlyData.push({
+                    year: year,
+                    cashFlow: cashFlow,
+                    discountFactor: discountFactor,
+                    presentValue: presentValue
+                });
+            }
+            
+            // Calculate terminal value
+            const finalCashFlow = cashFlows[numYears-1];
+            const terminalValue = finalCashFlow * (1 + terminalGrowth) / (discountRate - terminalGrowth);
+            const pvTerminalValue = terminalValue / Math.pow(1 + discountRate, numYears);
+            
+            // Calculate total present value and NPV
+            const totalPV = pvCashFlows + pvTerminalValue;
+            const npv = totalPV - initialInvestment;
+            
+            // Update results
+            document.getElementById('result-pv-cash-flows').textContent = formatCurrency(pvCashFlows);
+            document.getElementById('result-pv-terminal').textContent = formatCurrency(pvTerminalValue);
+            document.getElementById('result-total-pv').textContent = formatCurrency(totalPV);
+            document.getElementById('result-npv').textContent = formatCurrency(npv);
+            
+            // Generate yearly breakdown
+            generateYearlyBreakdown(yearlyData);
+            
+            // Generate chart
+            generateChart(yearlyData, terminalValue);
+        });
+
+        // Format currency
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        // Generate yearly breakdown
+        function generateYearlyBreakdown(yearlyData) {
+            const tbody = document.getElementById('yearly-breakdown');
+            tbody.innerHTML = '';
+            
+            yearlyData.forEach((data, index) => {
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-gray-50' : '';
+                
+                row.innerHTML = `
+                    <td class="py-2 px-4">${data.year}</td>
+                    <td class="py-2 px-4 text-right">${formatCurrency(data.cashFlow)}</td>
+                    <td class="py-2 px-4 text-right">${data.discountFactor.toFixed(4)}</td>
+                    <td class="py-2 px-4 text-right font-medium">${formatCurrency(data.presentValue)}</td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // Generate chart
+        function generateChart(yearlyData, terminalValue) {
+            const ctx = document.getElementById('cash-flow-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.cashFlowChart) {
+                window.cashFlowChart.destroy();
+            }
+            
+            // Prepare data
+            const labels = yearlyData.map(data => `Year ${data.year}`);
+            const cashFlowData = yearlyData.map(data => data.cashFlow);
+            const pvData = yearlyData.map(data => data.presentValue);
+            
+            // Add terminal value
+            labels.push('Terminal Value');
+            cashFlowData.push(terminalValue);
+            pvData.push(terminalValue / Math.pow(1 + parseFloat(document.getElementById('discount-rate').value) / 100, yearlyData.length));
+            
+            // Create chart
+            window.cashFlowChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Cash Flow',
+                            data: cashFlowData,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgb(75, 192, 192)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Present Value',
+                            data: pvData,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgb(54, 162, 235)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + formatCurrency(context.raw);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) {
+                                    return formatCurrency(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize chart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const initialInvestment = 100000;
+            const discountRate = 0.10;
+            const numYears = 5;
+            const terminalGrowth = 0.03;
+            
+            const cashFlows = [20000, 25000, 30000, 35000, 40000];
+            let pvCashFlows = 0;
+            const yearlyData = [];
+            
+            for (let year = 1; year <= numYears; year++) {
+                const cashFlow = cashFlows[year-1];
+                const discountFactor = 1 / Math.pow(1 + discountRate, year);
+                const presentValue = cashFlow * discountFactor;
+                pvCashFlows += presentValue;
+                
+                yearlyData.push({
+                    year: year,
+                    cashFlow: cashFlow,
+                    discountFactor: discountFactor,
+                    presentValue: presentValue
+                });
+            }
+            
+            const finalCashFlow = cashFlows[numYears-1];
+            const terminalValue = finalCashFlow * (1 + terminalGrowth) / (discountRate - terminalGrowth);
+            
+            generateChart(yearlyData, terminalValue);
+        });
+    </script>
+</body>
+</html> 

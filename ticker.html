@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Ticker | Step Up SIP Calculator Live Market Updates</title>
+    <meta name="description" content="Stay updated with live market ticker information for your Step Up SIP Calculator investments. Track real-time market trends and make informed investment decisions.">
+    <link rel="canonical" href="https://bczabcd.com/ticker" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">Step Up SIP Calculator</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Step Up SIP Calculator Subscriptions</a>
+                    <a href="ticker.html" class="text-blue-600">Ticker</a>
+                    <a href="recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select id="language-selector" class="border rounded p-1">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="es">Español</option>
+                    </select>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-2 mt-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Step Up SIP Calculator Subscriptions</a>
+                    <a href="ticker.html" class="text-blue-600">Ticker</a>
+                    <a href="recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-2">
+        <nav class="text-sm">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="index.html" class="text-blue-600 hover:text-blue-800">Home</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-500">Ticker</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8">Live Market Ticker</h1>
+
+        <!-- Market Overview -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Market Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-semibold mb-2">S&P 500</h3>
+                    <p class="text-2xl font-bold text-green-600">4,783.45</p>
+                    <p class="text-sm text-green-600">+1.2%</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-semibold mb-2">Dow Jones</h3>
+                    <p class="text-2xl font-bold text-red-600">37,592.98</p>
+                    <p class="text-sm text-red-600">-0.8%</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-semibold mb-2">NASDAQ</h3>
+                    <p class="text-2xl font-bold text-green-600">15,003.22</p>
+                    <p class="text-sm text-green-600">+1.5%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Ticker -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Live Ticker Updates</h2>
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Symbol</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Change</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">AAPL</td>
+                                <td class="px-6 py-4 whitespace-nowrap">$189.30</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-green-600">+2.3%</td>
+                                <td class="px-6 py-4 whitespace-nowrap">52.3M</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">MSFT</td>
+                                <td class="px-6 py-4 whitespace-nowrap">$376.04</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-green-600">+1.8%</td>
+                                <td class="px-6 py-4 whitespace-nowrap">28.7M</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">GOOGL</td>
+                                <td class="px-6 py-4 whitespace-nowrap">$142.65</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-red-600">-0.5%</td>
+                                <td class="px-6 py-4 whitespace-nowrap">15.2M</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Analysis -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6">Market Analysis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Technical Analysis</h3>
+                    <p>Current market trends indicate a bullish sentiment with strong support levels. Key resistance points have been identified at previous highs.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold mb-4">Market Sentiment</h3>
+                    <p>Investor confidence remains positive with increasing trading volumes and strong market participation across sectors.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Step Up SIP Calculator</h3>
+                    <p>Your trusted partner in financial planning and wealth creation.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about-us.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="team.html" class="hover:text-blue-400">Team</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="finology-subscriptions.html" class="hover:text-blue-400">Step Up SIP Calculator Subscriptions</a></li>
+                        <li><a href="recipe.html" class="hover:text-blue-400">Recipe</a></li>
+                        <li><a href="quest.html" class="hover:text-blue-400">Quest</a></li>
+                        <li><a href="ticker.html" class="hover:text-blue-400">Ticker</a></li>
+                        <li><a href="select.html" class="hover:text-blue-400">Select</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Top Calculators</h3>
+                    <ul class="space-y-2">
+                        <li><a href="calculators/lumpsum.html" class="hover:text-blue-400">Lumpsum Calculator</a></li>
+                        <li><a href="calculators/sip.html" class="hover:text-blue-400">SIP Calculator</a></li>
+                        <li><a href="calculators/step-up.html" class="hover:text-blue-400">Step-up Calculator</a></li>
+                        <li><a href="calculators/dcf.html" class="hover:text-blue-400">DCF Calculator</a></li>
+                        <li><a href="calculators/goal-planning-sip.html" class="hover:text-blue-400">Goal Planning - SIP Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <div class="text-center">
+                    <p class="mt-2">渝ICP备2024032264号</p>
+                    <p>Contact Us: ytsgabcde087@2925.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Language selector
+        document.getElementById('language-selector').addEventListener('change', function(e) {
+            const language = e.target.value;
+            // Implement language switching logic here
+        });
+    </script>
+</body>
+</html> 

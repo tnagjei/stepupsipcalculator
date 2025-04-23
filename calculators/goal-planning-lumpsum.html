@@ -1,0 +1,36 @@
+                    <div>
+                        <label class="block text-gray-700 mb-2">Target Amount ($)</label>
+                        <input type="number" id="target-amount" class="w-full p-2 border rounded" required min="10000" value="100000">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Initial Investment ($)</label>
+                        <input type="number" id="initial-investment" class="w-full p-2 border rounded" required min="1000" value="10000">
+                    </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Required Investment</p>
+                            <p id="result-required-investment" class="text-xl font-bold text-blue-600">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Total Returns</p>
+                            <p id="result-total-returns" class="text-xl font-bold text-green-600">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Inflation Adjusted Value</p>
+                            <p id="result-inflation-adjusted" class="text-xl font-bold text-orange-600">$0</p>
+                        </div>
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        <h3 class="text-xl font-semibold mb-4">Company</h3>
+        <ul class="space-y-2">
+            <li><a href="../about-us.html" class="hover:text-blue-400">About Us</a></li>
+            <li><a href="../team.html" class="hover:text-blue-400">Team</a></li>
+            <li><a href="../privacy-policy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+            <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+            <li><a href="../returns-refunds.html" class="hover:text-blue-400">Returns & Refunds</a></li>
+            <li><a href="../whats-new.html" class="hover:text-blue-400">What's New</a></li>
+        </ul> 

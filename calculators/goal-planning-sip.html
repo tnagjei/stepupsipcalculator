@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Planning - SIP Calculator | Bergman</title>
+    <meta name="description" content="Plan your financial goals with our Goal Planning - SIP Calculator. Calculate how much you need to invest to achieve your financial goals.">
+    <link rel="canonical" href="https://bczabcd.com/calculators/goal-planning-sip" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-blue-600">Bergman</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="../finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Bergman Subscriptions</a>
+                    <a href="../ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="../recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="../quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="../select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="../inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select id="language-selector" class="border rounded p-1">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="es">Español</option>
+                    </select>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-2 mt-4">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="../finology-subscriptions.html" class="text-gray-700 hover:text-blue-600">Bergman Subscriptions</a>
+                    <a href="../ticker.html" class="text-gray-700 hover:text-blue-600">Ticker</a>
+                    <a href="../recipe.html" class="text-gray-700 hover:text-blue-600">Recipe</a>
+                    <a href="../quest.html" class="text-gray-700 hover:text-blue-600">Quest</a>
+                    <a href="../select.html" class="text-gray-700 hover:text-blue-600">Select</a>
+                    <a href="../inside.html" class="text-gray-700 hover:text-blue-600">Inside</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-2">
+        <nav class="text-sm">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-800">Home</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <a href="../finology-subscriptions.html" class="text-blue-600 hover:text-blue-800">Financial Calculators</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="mx-2">/</span>
+                    <span class="text-gray-500">Goal Planning - SIP Calculator</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-2">Goal Planning - SIP Calculator</h1>
+        <p class="text-gray-600 mb-8">Calculate how much you need to invest monthly to achieve your financial goals.</p>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Calculator Form -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Goal Details</h2>
+                <form id="goal-planning-form" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Target Amount ($)</label>
+                        <input type="number" id="target-amount" class="w-full p-2 border rounded" required min="10000" value="100000">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Time Period (Years)</label>
+                        <input type="number" id="time-period" class="w-full p-2 border rounded" required min="1" max="30" value="10">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Expected Return Rate (%)</label>
+                        <input type="number" id="return-rate" class="w-full p-2 border rounded" required min="0" max="30" value="12">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Inflation Rate (%)</label>
+                        <input type="number" id="inflation-rate" class="w-full p-2 border rounded" required min="0" max="20" value="6">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Initial Investment ($)</label>
+                        <input type="number" id="initial-investment" class="w-full p-2 border rounded" required min="1000" value="10000">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Compounding Frequency</label>
+                        <select id="compounding-frequency" class="w-full p-2 border rounded">
+                            <option value="12">Monthly</option>
+                            <option value="4">Quarterly</option>
+                            <option value="2">Semi-Annually</option>
+                            <option value="1">Annually</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 w-full">Calculate</button>
+                </form>
+            </div>
+            
+            <!-- Results -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Results</h2>
+                <div id="results" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Required Monthly SIP</p>
+                            <p id="result-monthly-sip" class="text-xl font-bold text-blue-600">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Total Investment</p>
+                            <p id="result-total-investment" class="text-xl font-bold">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Total Returns</p>
+                            <p id="result-total-returns" class="text-xl font-bold text-green-600">$0</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <p class="text-sm text-gray-600">Inflation Adjusted Value</p>
+                            <p id="result-inflation-adjusted" class="text-xl font-bold text-orange-600">$0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="font-medium mb-2">Investment Growth</h3>
+                        <canvas id="growth-chart" height="200"></canvas>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="font-medium mb-2">Year-wise Breakdown</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="py-2 px-4 text-left">Year</th>
+                                        <th class="py-2 px-4 text-right">Investment</th>
+                                        <th class="py-2 px-4 text-right">Returns</th>
+                                        <th class="py-2 px-4 text-right">Total Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="yearly-breakdown">
+                                    <!-- Yearly breakdown will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- How It Works -->
+        <div class="mt-12 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">How Goal Planning Works</h2>
+            <div class="prose max-w-none">
+                <p>Goal Planning with SIP (Systematic Investment Plan) helps you determine how much you need to invest regularly to achieve your financial goals. The calculator takes into account:</p>
+                <ul>
+                    <li>Your target amount</li>
+                    <li>Time period to achieve the goal</li>
+                    <li>Expected return rate</li>
+                    <li>Inflation rate</li>
+                    <li>Initial investment amount</li>
+                    <li>Compounding frequency</li>
+                </ul>
+                <p>The formula used for calculating the required monthly SIP is:</p>
+                <div class="bg-gray-100 p-4 rounded my-4 text-center">
+                    <p class="font-mono">PMT = (FV * r) / ((1 + r)^n - 1)</p>
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li>PMT = Required monthly investment</li>
+                    <li>FV = Future value (target amount)</li>
+                    <li>r = Monthly interest rate</li>
+                    <li>n = Total number of months</li>
+                </ul>
+                <p>The inflation-adjusted amount is calculated using:</p>
+                <div class="bg-gray-100 p-4 rounded my-4 text-center">
+                    <p class="font-mono">Adjusted Amount = Target Amount * (1 + Inflation Rate)^Years</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Benefits of Goal Planning -->
+        <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Benefits of Goal Planning</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium mb-2">Clear Objectives</h3>
+                    <p class="text-gray-600">Helps you set clear financial goals and understand the investment required to achieve them.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Inflation Protection</h3>
+                    <p class="text-gray-600">Accounts for inflation to ensure your money maintains its purchasing power.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Regular Savings</h3>
+                    <p class="text-gray-600">Encourages disciplined saving through systematic investment plans.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Compounding Benefits</h3>
+                    <p class="text-gray-600">Maximizes the power of compounding by investing regularly over time.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Risk Management</h3>
+                    <p class="text-gray-600">Helps in understanding and managing investment risks through proper planning.</p>
+                </div>
+                <div>
+                    <h3 class="font-medium mb-2">Financial Freedom</h3>
+                    <p class="text-gray-600">Paves the way for achieving financial independence through goal-oriented investing.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Bergman</h3>
+                    <p>Your trusted partner in financial planning and wealth creation.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Bergman</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../about-us.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="../team.html" class="hover:text-blue-400">Team</a></li>
+                        <li><a href="../privacy-policy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                        <li><a href="../returns-refunds.html" class="hover:text-blue-400">Returns & Refunds</a></li>
+                        <li><a href="../whats-new.html" class="hover:text-blue-400">What's New</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../finology-subscriptions.html" class="hover:text-blue-400">Bergman Subscriptions</a></li>
+                        <li><a href="../recipe.html" class="hover:text-blue-400">Recipe</a></li>
+                        <li><a href="../quest.html" class="hover:text-blue-400">Quest</a></li>
+                        <li><a href="../ticker.html" class="hover:text-blue-400">Ticker</a></li>
+                        <li><a href="../select.html" class="hover:text-blue-400">Select</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Top Calculators</h3>
+                    <ul class="space-y-2">
+                        <li><a href="lumpsum.html" class="hover:text-blue-400">Lumpsum Calculator</a></li>
+                        <li><a href="sip.html" class="hover:text-blue-400">SIP Calculator</a></li>
+                        <li><a href="step-up.html" class="hover:text-blue-400">Step-up Calculator</a></li>
+                        <li><a href="dcf.html" class="hover:text-blue-400">DCF Calculator</a></li>
+                        <li><a href="goal-planning-sip.html" class="hover:text-blue-400">Goal Planning - SIP Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="mt-2">渝ICP备2024032264号</p>
+                        <p>Contact Us: ytsgabcde087@2925.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Language selector
+        document.getElementById('language-selector').addEventListener('change', function(e) {
+            const language = e.target.value;
+            // Implement language switching logic here
+        });
+
+        // Goal Planning Calculator
+        document.getElementById('goal-planning-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const targetAmount = parseFloat(document.getElementById('target-amount').value);
+            const timePeriod = parseInt(document.getElementById('time-period').value);
+            const returnRate = parseFloat(document.getElementById('return-rate').value) / 100;
+            const inflationRate = parseFloat(document.getElementById('inflation-rate').value) / 100;
+            const initialInvestment = parseFloat(document.getElementById('initial-investment').value);
+            const compoundingFrequency = parseInt(document.getElementById('compounding-frequency').value);
+            
+            // Calculate monthly rate
+            const monthlyRate = returnRate / 12;
+            const totalMonths = timePeriod * 12;
+            
+            // Calculate required monthly SIP
+            const futureValue = targetAmount;
+            const monthlySIP = (futureValue * monthlyRate) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+            
+            // Calculate total investment and returns
+            let totalInvestment = initialInvestment;
+            let totalValue = initialInvestment;
+            const yearlyData = [];
+            
+            for (let year = 1; year <= timePeriod; year++) {
+                const yearlyInvestment = monthlySIP * 12;
+                totalInvestment += yearlyInvestment;
+                
+                for (let month = 1; month <= 12; month++) {
+                    totalValue = (totalValue + monthlySIP) * (1 + monthlyRate);
+                }
+                
+                const yearlyReturns = totalValue - totalInvestment;
+                
+                yearlyData.push({
+                    year: year,
+                    investment: totalInvestment,
+                    returns: yearlyReturns,
+                    totalValue: totalValue
+                });
+            }
+            
+            // Calculate inflation-adjusted amount
+            const inflationAdjustedAmount = targetAmount * Math.pow(1 + inflationRate, timePeriod);
+            
+            // Update results
+            document.getElementById('result-monthly-sip').textContent = formatCurrency(monthlySIP);
+            document.getElementById('result-total-investment').textContent = formatCurrency(totalInvestment);
+            document.getElementById('result-total-returns').textContent = formatCurrency(totalValue - totalInvestment);
+            document.getElementById('result-inflation-adjusted').textContent = formatCurrency(inflationAdjustedAmount);
+            
+            // Generate yearly breakdown
+            generateYearlyBreakdown(yearlyData);
+            
+            // Generate chart
+            generateChart(yearlyData);
+        });
+
+        // Format currency
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        // Generate yearly breakdown
+        function generateYearlyBreakdown(yearlyData) {
+            const tbody = document.getElementById('yearly-breakdown');
+            tbody.innerHTML = '';
+            
+            yearlyData.forEach((data, index) => {
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-gray-50' : '';
+                
+                row.innerHTML = `
+                    <td class="py-2 px-4">${data.year}</td>
+                    <td class="py-2 px-4 text-right">${formatCurrency(data.investment)}</td>
+                    <td class="py-2 px-4 text-right">${formatCurrency(data.returns)}</td>
+                    <td class="py-2 px-4 text-right font-medium">${formatCurrency(data.totalValue)}</td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // Generate chart
+        function generateChart(yearlyData) {
+            const ctx = document.getElementById('growth-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.growthChart) {
+                window.growthChart.destroy();
+            }
+            
+            // Prepare data
+            const labels = yearlyData.map(data => `Year ${data.year}`);
+            const investmentData = yearlyData.map(data => data.investment);
+            const returnsData = yearlyData.map(data => data.returns);
+            const totalValueData = yearlyData.map(data => data.totalValue);
+            
+            // Create chart
+            window.growthChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Total Investment',
+                            data: investmentData,
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            fill: true
+                        },
+                        {
+                            label: 'Returns',
+                            data: returnsData,
+                            borderColor: 'rgb(54, 162, 235)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            fill: true
+                        },
+                        {
+                            label: 'Total Value',
+                            data: totalValueData,
+                            borderColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + formatCurrency(context.raw);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) {
+                                    return formatCurrency(value);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize chart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const targetAmount = 1000000;
+            const timePeriod = 10;
+            const returnRate = 0.12;
+            const inflationRate = 0.06;
+            const initialInvestment = 100000;
+            const compoundingFrequency = 12;
+            
+            const monthlyRate = returnRate / 12;
+            const totalMonths = timePeriod * 12;
+            const monthlySIP = (targetAmount * monthlyRate) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+            
+            let totalInvestment = initialInvestment;
+            let totalValue = initialInvestment;
+            const yearlyData = [];
+            
+            for (let year = 1; year <= timePeriod; year++) {
+                const yearlyInvestment = monthlySIP * 12;
+                totalInvestment += yearlyInvestment;
+                
+                for (let month = 1; month <= 12; month++) {
+                    totalValue = (totalValue + monthlySIP) * (1 + monthlyRate);
+                }
+                
+                const yearlyReturns = totalValue - totalInvestment;
+                
+                yearlyData.push({
+                    year: year,
+                    investment: totalInvestment,
+                    returns: yearlyReturns,
+                    totalValue: totalValue
+                });
+            }
+            
+            generateChart(yearlyData);
+        });
+    </script>
+</body>
+</html> 
